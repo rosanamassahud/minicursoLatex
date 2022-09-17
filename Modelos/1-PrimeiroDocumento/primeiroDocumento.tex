@@ -1,0 +1,80 @@
+%Para introduzirmos comentários colocamos um % e escrevemos o que quisermos pois a partir daí o compilador ignora o texto.
+%Se quisermos obrigar à mudança de linha, colocamos \\.
+
+%Preâmbulo
+
+%Determina a classe do documento. Classes possíveis (há mais!): letter, article, book, report, slides, beamer.
+\documentclass[12pt,a4paper, twocolumn]{article}
+%\documentclass[12pt,a5paper]{article}
+
+%% outras possibilidades de tipo de papel:
+
+%%a5paper - A5: 148 mm x 210 mm, that is half of A4, basically
+%%b5paper - B5: 250 mm x 176 mm
+%%letterpaper - Letter: 215.9 mm x 279.4 mm
+%%legalpaper - Legal: 215.9 mm x 355.6 mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Packages(Módulos específicos)
+
+\usepackage{lipsum} %para gerar alguns textos como exemplo
+%\usepackage[portuguese]{babel} %para portugues portugal
+\usepackage[brazil]{babel} %para portugues brasil
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+
+\usepackage{setspace} %espaçamento entre linhas
+\usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry} %definir margens
+\setlength{\columnsep}{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Abertura
+
+%Introdução do título.
+\title{TÍTULO DO PRIMEIRO DOCUMENTO EM \LaTeX \\
+Um exemplo simples}
+
+%Introdução do autor.
+\author{Seu Nome Fulano de Tal}
+
+%Definição da data
+\date{\today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%Gerar o título
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+%\part{Primeira parte}
+%\chapter{Meu primeiro texto em \LaTeX}
+
+\section{Primeira Seção}
+\doublespacing Vamos escrever uma frase para testar tamanhos {\small pequenos} e {\large grandes}. Tamanhos {\footnotesize muito pequenos} e também {\Large muito grandes}. Texto {\tiny muito muito pequenos}. Os maiores são {\huge esse} e {\Huge esse}.
+
+\singlespacing
+\lipsum[1-10]
+
+\section{Título da segunda seção}
+\lipsum[1-10]
+
+%\part{Segunda parte}
+%\chapter{Meu primeiro texto em \LaTeX}
+
+\section{Primeira Seção}
+Vamos escrever uma frase para testar tamanhos {\small pequenos} e {\large grandes}. Tamanhos {\footnotesize muito pequenos} e também {\Large muito grandes}. Texto {\tiny muito muito pequenos}. Os maiores são {\huge esse} e {\Huge esse}.
+
+\lipsum[1-10]
+
+\section{Título da segunda seção}
+\lipsum[1-10]
+
+\end{document}

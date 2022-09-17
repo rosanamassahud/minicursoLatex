@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel} %para portugu?s
+\usepackage[T1]{fontenc}
+
+\usepackage{lipsum} %para gerar alguns textos como exemplo
+
+\usepackage{verbatim}
+\usepackage{listings}% http://ctan.org/pkg/listings
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+
+\usepackage{geometry}
+\geometry{verbose,letterpaper,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm,headheight=1.5cm}
+
+\providecommand{\palavraschave}[1]{\textbf{\textit{\hspace{0.4cm}Palavras-chave---}} #1}
+
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+\title{Título do seu artigo}
+\author{seu nome}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent \lipsum[1-1]
+\end{abstract}
+
+\palavraschave{bla, blabla, blablabla}
+
+\bibliographystyle{plain}%Choose a bibliograhpic style
+%
+%\begin{multicols}{2}
+\section{Introdução}
+Note. This is the Postscript version with plain bibliographic style.
+Most of the academic staff in the School of Computer Science and Software 
+Engineering have publications in their field of expertise or research. 
+The majority of the publications appear in journals or proceedings of conferences. 
+Articles appearing in journals may be written by a single author~\cite{Meyer2000}. 
+Where there are multiple authors, the citation in the text usually names only the first author, 
+for example Kim Marriott's article on logic programming~\cite{Codishetal2000}. 
+The same fate befalls~\cite{Huetal2000}. 
+Some authors contribute a chapter to edited books~\cite{Conway2000}. Others, for example Christine Mingins, 
+jointly publish a book~\cite{Huetal2000}. Damian Conway is a world expert on Perl. 
+As well as having written a book on this topic~\cite{Conway2000}, 
+he has also been the subject of articles~\cite{Meyer2000}.
+%
+
+\section{Material e Métodos}
+\lipsum[1-3]
+\section{Desenvolvimento}
+\lipsum[1-1]
+Exemplo de inserção de um código, usando o pacote \emph{\textbf{lstlisting}}.
+
+\begin{lstlisting}
+$\sharp$include <stdio.h>
+
+int main(){
+ int num[8], pos[8], neg[8];
+ int i, cont_p = 0, cont_n = 0;
+ printf("Preenchendo o vetor...");
+ for(i = 0; i < 8; i++){
+     printf("\n>");
+     scanf("$\%$d", &num[i]);
+ }
+
+ printf("Preenchendo os vetores resultantes 
+         de acordo com o numero...");
+
+ for(i = 0; i < 8; i++){
+   if(num[i] >= 0){
+    pos[cont_p] = num[i];
+    cont_p = cont_p + 1;
+   }
+   else{
+    neg[cont_n] = num[i];
+    cont_n = cont_n + 1;
+   }
+ }
+ printf("\n\nImprimindo os vetores resultantes...\n");
+ printf("\n\nVetor de numeros negativos:\n");
+ if(cont_n == 0)
+  printf("Vetor de numeros negativos vazio!\n");
+ else{
+  for(i = 0; i < cont_n; i++){
+   printf("$\%$d \t", neg[i]);
+  }
+ }
+ printf("\n\nVetor de numeros positivos:\n");
+  if(cont_p == 0)
+   printf("Vetor de numeros positivos vazio!\n");
+  else{
+   for(i = 0; i < cont_p; i++){
+    printf("$\%$d \t", pos[i]);
+   }
+  }
+
+ return 0;
+}
+
+\end{lstlisting}
+
+\section{Resultados}
+Outro pacote muito usado para este fim é o \emph{\textbf{verbatim}}.
+
+O verbatim é aquele conteúdo que o \LaTeX não vai interpretar como \LaTeX. Pode exemplo, se você estiver escrevendo um manual sobre \LaTeX, linguagens de programação, etc, esse texto vai aparecer como você escreveu, sem ser compilado como comandos.
+
+Padrão no \LaTeX é usar os delimitadores $\backslash$begin\{verbatim\} \dots $\backslash$end\{verbatim\}, mas isso não funciona dentro de um parágrafo.
+
+Basta incluir o pacote Verbatim:
+
+$\backslash$usepackage\{verbatim\}
+
+Veja como fica:
+
+\begin{verbatim}
+/*Exemplo de um código em Java*/
+
+public class main{
+    public static void main(String args[]){
+        System.out.println("Alô Mundo!");
+    }
+
+}
+\end{verbatim}
+
+\section{Conclusão}
+\lipsum[1-2]
+
+\bibliography{referencias}
+%\end{multicols}
+\end{document} 

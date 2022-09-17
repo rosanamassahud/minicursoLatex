@@ -1,0 +1,145 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{times}
+\usepackage{lipsum} %para gerar alguns textos como exemplo
+
+\usepackage{amssymb} %para inserir fórmulas matemáticas
+\usepackage{amsmath} %para inserir fórmulas matemáticas
+\usepackage{amsfonts} %para inserir fórmulas matemáticas
+
+\usepackage[brazil,brazilian]{babel}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+
+\usepackage{color,graphicx} %permite a inserção de figuras
+\usepackage{lineno} %usamos este pacote para retirar o espaço em branco ao redor das figuras
+
+\usepackage{setspace} %espaçamento entre linhas (doublespacing, singlespacing)
+\usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry} %definir margens
+
+
+%%O pacote abaixo serve para inserir códigos
+\usepackage{listings}% http://ctan.org/pkg/listings
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
+\providecommand{\palavraschave}[1]{\textbf{\textit{Palavras-chave---}} #1}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+
+%\usepackage[alf]{abntex2cite}%para citações alfa-numéricas padrão ABNT
+%\citeoption{abnt-full-initials=yes}
+
+\bibliographystyle{plain}%Choose a bibliograhpic style
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Abertura
+
+%Introdução do título.
+\title{TRABALHO PRÁTICO III}
+
+%Introdução do autor.
+
+\author{Fulano de Tal\footnote{alguma coisa sobre o autor 1},  Ciclano Beltrano\footnote{alguma coisa sobre o autor2} \\
+\footnotesize Métodos Numéricos Computacionais, Departamento de Engenharia, CEFET-MG Nepomuceno\\
+\footnotesize \texttt{\{fulano, ciclano\}@cefetmg.br} \\ }
+
+
+%Definição da data
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+\noindent \textbf{Abstract --- }This work has the intention of finding zeros of approximate functions or roots, was created methods by Matlab to can streamline the accounts
+\\
+\\
+\noindent\keywords{Matlab, Methods, Roots}
+\\
+\\
+\noindent \textbf{Resumo --- }Este trabalho tem o intuito de achar zeros de funções ou raízes aproximadas, foi criados métodos pelo Matlab para pode agilizar as contas
+\\
+\\
+\noindent\palavraschave{Matlab, Métodos, Raízes}
+
+\begin{multicols}{2}
+
+\section{Introdução}
+\lipsum[1-5]
+
+\section{Desenvolvimento}
+\lipsum[1-2]
+\begin{lstlisting}
+clc;
+clear;
+erro=1000;
+i=1;
+f=[1,0,0,-10];
+a=2;
+b=3;
+fa=polyval(f,a);
+fb=polyval(f,b);
+x(1,i)=(a+b)/2;
+%Pra ver se e continua
+if(fa*fb<0) 
+fx=polyval(f,x(1,i));
+c=0;
+%Condicao de parada 
+%estabelecida pelo exercicio
+while(erro>0.1) 
+c=c+1;
+%Se f(a)*f(x), 
+%entao x pertence(a,x)
+if(fa*fx<0)
+% a=a;
+b=x(1,i);
+%Senao x pertence(x,b)
+else (fa*fb>0) 
+a=x(1,i);
+% b=b;
+end
+i=i+1;
+%Formula do metodo 
+%de bissecao
+x(1,i)=(a+b)/2;
+fx=polyval(f,x(1,i));
+%calculo do erro
+erro =abs( x(1,i)- x(1,i-1));
+end
+end
+disp('Numero de iteracoes:');
+disp(c);
+disp('ERRO:');
+disp(erro);
+x
+\end{lstlisting}
+
+De acordo com \cite{braga2000redes} é assim assim assado.
+
+Um exemplo de citação usando abntex, segundo \cite{haykin2001redes}, blá blá blá.
+
+Para \cite{barreto2002}, blá.
+
+\begin{equation}
+x_{n+1} = X_n - \frac{f(x_n)}{{f}'(x_n)}, n \in \mathbb{N}
+\end{equation}
+
+\lipsum[1-2]
+\section{Conclusão}
+\lipsum[1-1]
+\section*{Agradecimentos}
+\lipsum[1-1]
+
+
+\bibliography{referencias}
+\end{multicols}
+\end{document}

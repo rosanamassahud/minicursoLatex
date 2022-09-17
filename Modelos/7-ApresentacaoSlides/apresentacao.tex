@@ -1,0 +1,226 @@
+\documentclass{beamer}
+
+  %Reconhecer os caracteres especiais no linux
+  %\usepackage[utf8x]{inputenc}
+  %Reconhcer os caracteres especiais no Windows
+\usepackage[utf8]{inputenc} %para portugu?s
+%  \usepackage[brazil]{babel} %para portugu?s
+%\usepackage[latin1]{inputenc} %para portugu?s
+%\usepackage[T1]{fontenc} %para portugu?s
+  %Recursos matemÃ¡tico como por exemplo sÃ­mbolos
+  \usepackage{amsmath}
+  \usepackage{amsfonts}
+  \usepackage{amssymb}
+  \usepackage{enumerate}
+  %Idioma
+  %\usepackage[portuges]{babel}
+  %Usar gráficos
+  \usepackage{graphicx}
+  %Usar animaÃ§Ã£o no beamer
+  %\usepackage{animate}
+  %Para inserir videos
+  %\usepackage{movie15}
+  %\usepackage{hyperref}
+
+%##############################.##########################################################
+% Temas
+%########################################################################################
+   %    \usepackage{beamerthemeshadow} % Usaremos este
+%       \usepackage{beamerthemebars}
+%       \usepackage[headheight=12pt,footheight=12pt]{beamerthemeboxes}
+%       \usepackage{beamerthemeclassic}
+%       \usepackage{beamerthemelined}
+%       \usepackage[width=12pt,dark,tab]{beamerthemesidebar}
+%       \usepackage{beamerthemesplit}
+%       \usepackage{beamerthemetree}
+%       \usepackage[bar]{beamerthemetree}
+%       \usepackage{beamerthemeWarsaw}
+%       \usepackage{beamerthemeMadrid}
+%       \usepackage{beamerthemeAnnArbor}
+%       \usepackage{beamerthemeAntibes}
+%       \usepackage{beamerthemeBergen}
+%      \usepackage{beamerthemeBerkeley}
+%       \usepackage{beamerthemeBerlin}
+%       \usepackage{beamerthemeBoadilla}
+%       \usepackage{beamerthemeboxes}
+%       \usepackage{beamerthemeCambridgeUS}
+%       \usepackage{beamerthemeCopenhagen}
+%       \usepackage{beamerthemeDarmstadt}
+%       \usepackage{beamerthemedefault}
+%       \usepackage{beamerthemeDresden}
+       \usepackage{beamerthemeFrankfurt}
+%       \usepackage{beamerthemeGoettingen}
+%       \usepackage{beamerthemeHannover}
+ %     \usepackage{beamerthemeIlmenau}
+%       \usepackage{beamerthemeJuanLesPins}
+%       \usepackage{beamerthemeLuebeck}
+%       \usepackage{beamerthemeMadrid}
+%      \usepackage{beamerthemeMalmoe}
+%       \usepackage{beamerthemeMarburg}
+%       \usepackage{beamerthemeMontpellier}
+%       \usepackage{beamerthemePaloAlto}
+%       \usepackage{beamerthemePittsburgh} %** seco
+%       \usepackage{beamerthemeRochester}
+%       \usepackage{beamerthemeSingapore}
+%       \usepackage{beamerthemeSzeged}
+%      \usepackage{beamerthemeWarsaw}
+%       \usepackage{beamerthemeHannover}
+
+%########################################################################################
+%Cores que podem ser usadas em diferentes themes
+%########################################################################################
+      %  \usecolortheme{default}
+%	\usecolortheme[RGB={255,0,0}]{structure}
+%	\usecolortheme[RGB={0,255,0}]{structure}
+% 	\usecolortheme[RGB={0,0,255}]{structure}
+%       \usecolortheme{albatross} %azul
+    \usecolortheme{beaver} %vermelho
+%       \usecolortheme{beetle} %cinza
+%       \usecolortheme{crane} %amarelo
+%       \usecolortheme{dolphin} %azul claro
+%       \usecolortheme{dove} %branco
+%       \usecolortheme{fly} %cinza
+%       \usecolortheme{lily} % banco
+%       \usecolortheme{orchid} % branco
+%       \usecolortheme{seagull} %cinza
+%       \usecolortheme{seahorse} %azul
+%       \usecolortheme{sidebartab} %branco
+%       \usecolortheme{whale} %branco
+%     \usecolortheme{wolverine} %amarelo e azul
+%########################################################################################
+%########################################################################################
+% Tipo o simbolo na listagem
+% \setbeamertemplate{items}[ball]
+% \setbeamertemplate{items}[circle]
+ \setbeamertemplate{items}[rectangle]
+% \setbeamertemplate{items}[default] %triangulos
+%########################################################################################
+%########################################################################################
+
+%Aqui você digita o título e a mensagem que irá aparecer no rodapé
+\title[Mensagem no Rodapé]{Título}
+%Aqui você digita o seu nome para aparecer logo abaixo do título
+\author{Seu nome}
+
+\begin{document}
+
+  \begin{frame}
+    \titlepage %Colocando o título da sua apresentação
+  \end{frame}
+
+  % Para o roteiro da apresentação sair antes de cada seção
+  \AtBeginSection[]
+  {
+    \begin{frame}
+		\frametitle{Sumário}
+		\small
+		\tableofcontents[currentsection,hideothersubsections]
+		\normalsize
+    \end{frame}
+  }
+
+  \section{Primeira seção}
+
+  %Ininiando um slide
+  \begin{frame}
+      \frametitle{Título do Slide} %Colocando o título do slide
+
+      Aqui você entra com o seu texto em \LaTeX!
+
+  \end{frame}
+
+  \section{Segunda seção}
+
+  \begin{frame}
+      \frametitle{Um exemplo de animação no Beamer}
+      \begin{figure}[t]
+	\centering
+	\includegraphics<1>[scale=0.5]{1.eps}
+	\includegraphics<2>[scale=0.5]{2.eps}
+	\includegraphics<3>[scale=0.5]{3.eps}
+	\includegraphics<4->[scale=0.5]{4.eps}
+      \end{figure}
+  \end{frame}
+
+\section{Terceira seção}
+  \begin{frame}
+    \frametitle{Aparece todos os itens de uma vez}
+    \begin{enumerate}%[<+_|alert@+>]
+	\item  alerta um
+	\item  alerta dois
+	\item  alerta tres
+	%\pause
+	%\item 4  aaaa
+	%\item 5  vvvvv
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Aparece um item de cada vez}
+    \begin{itemize}
+	\item<+-> 1
+	\item<+-> 2
+	\item<+-> 3
+	\item<+-> 4
+	\item<+-> 5
+    \end{itemize}
+  \end{frame}
+
+  \section{Quarta seção}
+
+  \begin{frame}
+
+    \begin{block}{This is a Block}
+	This is important information
+    \end{block}
+
+    \begin{alertblock}{This is an Alert block}
+    This is an important alert
+    \end{alertblock}
+
+    \begin{exampleblock}{This is an Example block}
+    This is an example
+    \end{exampleblock}
+
+  \end{frame}
+
+    \section{Quinta seção}
+
+  \begin{frame}
+      \begin{columns}[c] % the "c" option specifies center vertical alignment
+      \column{.5\textwidth} % column designated by a command
+      Contents of the first column
+      \column{.5\textwidth}
+      Contents split \\ into two lines
+      \end{columns}
+  \end{frame}
+
+  \begin{frame}
+      \begin{columns}[t] % contents are top vertically aligned
+      \begin{column}[T]{5cm} % each column can also be its own environment
+      Contents of first column \\ split into two lines
+      \end{column}
+      \begin{column}[T]{5cm} % alternative top-align that's better for graphics
+	    \includegraphics[height=3cm]{1.eps}
+      \end{column}
+      \end{columns}
+  \end{frame}
+
+  %Exemplo de slides limpo
+  \frame[plain]{
+
+    Exemplo de slides
+
+  }
+
+  %Exemplo de slide sem cabecalho
+  \frame[shrink]{
+
+    Exemplo de slides
+
+  }
+
+
+
+
+\end{document} 

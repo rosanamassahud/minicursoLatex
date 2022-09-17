@@ -1,0 +1,370 @@
+\documentclass[a4paper,10pt]{article}
+%configuração básica para um documento em português
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{times}
+
+\usepackage{setspace}
+%configuração básica para um documento em português
+
+\usepackage{graphicx}%pacote figuras
+\usepackage{graphics}%pacote figuras
+\usepackage{caption}%permite colocar legenda nas figuras
+\usepackage{adjustbox}%permite utilizar um sistema de escalas quando utilizado o pacote circuitikz
+
+%\usepackage{float}%permite colocar bordas na figura
+%\floatstyle{boxed}%permite colocar bordas na figura
+%\restylefloat{figure}%permite colocar bordas na figura
+
+\usepackage[siunitx]{circuitikz}%pacote que contém os componentes elétricos: diodos, resistores,etc
+\usepackage{tikz}
+
+\usepackage{hyperref}
+\usepackage{lipsum}
+\begin{document}%início do documento
+
+\section{Introdução}
+%Testando o pacote circuitikz - Veja que o componente nao se encontra centralizado
+  \begin{circuitikz}
+   \draw (0,0) to[resistor] (2,0); %resistor ao longo do eixo x - horizontal à tela do seu computador
+  \end{circuitikz}
+
+%Testando o pacote circuitikz - Veja que o componente nao se encontra centralizado
+  \begin{circuitikz}
+   \draw (0,0) to[resistor] (0,2); %resistor ao longo do eixo x - horizontal à tela do seu computador
+  \end{circuitikz}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% Observação: A cada vez que for utilizado \begin{circuitikz} \end{circuitikz} é criado sistema de referência relativo %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%Utilizando o comando \begin{center} \end{center} para centralizar o componente
+ \begin{center}
+  \begin{circuitikz}
+   \draw (0,0) to[resistor] (2,0); %resistor
+  \end{circuitikz}
+ \end{center}
+ 
+%utilizando \begin{figure} \end{}figure - parte 1
+ \begin{figure}[!htpb]
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+  \begin{circuitikz}
+   \draw (0,0) to[resistor] (2,0);%resistor ao longo do eixo x - horizontal à tela do seu computador desde o ponto (0,0)  até (2,0) 
+  \end{circuitikz}
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{resistor-sem ajuste da escala do componente} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ %utilizando \begin{figure} \end{}figure - parte 2
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=0.5}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (0,0) to[resistor] (2,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{resistor-utilizando ajuste da escala do componente} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%Utilizando outro componente%%%%%%%%%%%%%%%%%%%%
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (0,0) to[capacitor] (2,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Capacitor} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (0,0) to[ammeter] (2,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Amperímetro} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (5,0) to[voltmeter] (9,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Voltímetro} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (5,0) to[sD*] (9,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Diodo Stchottky} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (5,0) to[full Zener diode] (9,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Diodo Zener} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (5,0) to[led] (9,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Led} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (5,0) to[pD*] (9,0); %resistor
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Fotodiodo} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \draw (0,0) node[npn] (npn) {}
+     (npn.base) node[anchor=east] {B}
+     (npn.collector) node[anchor=south] {C}
+     (npn.emitter) node[anchor=north] {E};
+   \draw ($(npn)-(0.18,0)$) circle [radius=18pt];
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Transistor NPN} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \node[american and port] at (0,1) {};
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Porta E} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+\begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+  \node[transformer core] at (0,1) {};
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Amplificador operacional} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \node[op amp] at (0,1) {};
+   \node[op amp,yscale=-1] at (5,1) {};
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Amplificador operacional} % o comando caption para colocar legenda na figura
+ \end{figure}
+
+\begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \node[currarrow] at (0,1) {};
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Seta que indica sentido da corrente e/ou tensão} % o comando caption para colocar legenda na figura
+ \end{figure} 
+ 
+ \begin{figure}[htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+   \node[circ] at (0,1) {};
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Nó} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+  \draw (0,0) to[R, l=$R_1$] (2,0);
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Resistor} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+  \draw (0,0) to[R, i=$i_1$] (2,0);
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Resistor - corrente} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+\begin{figure}[!htpb]%[!htpb] permite colocar a figura na melhor posição
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{center}
+ \begin{adjustbox}{scale=1.0}%Início - Ajuste da escala do componente
+  \begin{circuitikz}
+  \draw (0,0) to[R, l=1<\kilo\ohm>, i=$\SI{1}{\milli\ampere}$, v=1<\volt>] (2,0);
+  %\draw (0,0) to[R, v=$v_1$] (2,0);
+  %\draw (0,0) to[R=$R_1$,i=$i_1$,v=$v_1$] (2,0);
+  \end{circuitikz}
+ \end{adjustbox}%Fim - Ajuste da escala do componente
+ \end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \caption{Resistor - tensão} % o comando caption para colocar legenda na figura
+ \end{figure}
+ 
+ \section{Circuitos \dots}
+ 
+ \lipsum[1-2]
+ \begin{figure}[!h]
+ \begin{center}
+ 	\begin{circuitikz}
+ 		\draw (0,0)
+ 		to[V, v=$U_q$] (0,2) %voltage
+ 		to[short] (2,2)
+ 		to[R=$R_1$] (2,0) %resistor
+ 		to[short] (0,0);
+ 		\draw (2,2)
+ 		to[short] (4,2)
+ 		to[L=$L_1$] (4,0)
+ 		to[short] (2,0);
+ 	\end{circuitikz}
+ \end{center}
+ \caption{Primeiro circuito}
+ \end{figure}
+ 
+ \lipsum[1-1]
+ 
+ \begin{figure}[!h]
+ \begin{center}
+ \begin{circuitikz}[american voltages]
+\draw
+  (0,0) to [short, *-] (6,0)
+  to [V, l_=$\mathrm{j}{\omega}_m \underline{\psi}^s_R$] (6,2) 
+  to [R, l_=$R_R$] (6,4) 
+  to [short, i_=$\underline{i}^s_R$] (5,4) 
+  (0,0) to [open, v^>=$\underline{u}^s_s$] (0,4) 
+  to [short, *- ,i=$\underline{i}^s_s$] (1,4) 
+  to [R, l=$R_s$] (3,4)
+  to [L, l=$L_{\sigma}$] (5,4) 
+  to [short, i_=$\underline{i}^s_M$] (5,3) 
+  to [L, l_=$L_M$] (5,0); 
+  \end{circuitikz}
+   \end{center}
+ \caption{Segundo exemplo - option \it{american voltages}}
+ \end{figure}
+ 
+ \lipsum[1-1]
+ 
+  \begin{figure}[!htpb]
+ \begin{center}
+ \begin{circuitikz}[european voltages]
+\draw
+  (0,0) to [short, *-] (6,0)
+  to [V, l_=$\mathrm{j}{\omega}_m \underline{\psi}^s_R$] (6,2) 
+  to [R, l_=$R_R$] (6,4) 
+  to [short, i_=$\underline{i}^s_R$] (5,4) 
+  (0,0) to [open, v^>=$\underline{u}^s_s$] (0,4) 
+  to [short, *- ,i=$\underline{i}^s_s$] (1,4) 
+  to [R, l=$R_s$] (3,4)
+  to [L, l=$L_{\sigma}$] (5,4) 
+  to [short, i_=$\underline{i}^s_M$] (5,3) 
+  to [L, l_=$L_M$] (5,0); 
+  \end{circuitikz}
+   \end{center}
+ \caption{O mesmo circuito com option \it{european voltages}}
+ \end{figure}
+ 
+ \section*{Referências}
+ 
+ \singlespacing
+\noindent Saravia, Edgard Gregory Torres. Curso de Latex. Disponível em: \url{http://www.icea.ufop.br/professores/edgard_gregory/curso_de_latex}. Acesso em: Set/2017.
+
+ \doublespacing
+
+\singlespacing
+\noindent ShareLaTeX. CircuiTikz package. Disponível em: \url{https://pt.sharelatex.com/learn/CircuiTikz_package}. Acesso em: Set/2017.
+
+ \doublespacing
+ 
+ \singlespacing
+\noindent Redaelli, Massimo A.; Lindner, Stefan; Erhardt, Stefan. CircuiTikZ. (Manual). Mai/2017. Disponível em: \url{http://repositorios.cpai.unb.br/ctan/graphics/pgf/contrib/circuitikz/doc/circuitikzmanual.pdf}. Acesso em: Set/2017.
+
+\end{document}%fim do documento
